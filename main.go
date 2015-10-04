@@ -19,14 +19,13 @@ func getBranch() {
 		return
 	}
 	output := string(stdout)
-	fmt.Println(output)
+	fmt.Println(output, "  <|  ")
 }
 
 func getTime() {
 	t := time.Now()
 	h := t.Hour()
 	m := t.Minute()
-	s := t.Second()
 
-	fmt.Println(h, ":", m, ":", s)
+	fmt.Println(h, ":", m, "  |>")
 }
