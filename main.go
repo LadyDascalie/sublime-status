@@ -14,12 +14,14 @@ func main() {
 func getBranch() {
 	cmd := exec.Command("bash", "-c", `git branch | grep "*"`)
 	stdout, err := cmd.Output()
-	if err != nil {
-		fmt.Println(err.Error())
-		return
-	}
 	output := string(stdout)
-	fmt.Println(output, "  <|  ")
+	if err != nil {
+		fmt.Print("Not a Git repo ◀")
+		return // Let it run despite the error
+	} else {
+		fmt.Print(output, "◀")
+	}
+
 }
 
 func getTime() {
@@ -27,5 +29,5 @@ func getTime() {
 	h := t.Hour()
 	m := t.Minute()
 
-	fmt.Println(h, ":", m, "  |>")
+	fmt.Print(h, ":", m, "▶")
 }
