@@ -12,7 +12,7 @@ func main() {
 }
 
 func getBranch() {
-	cmd := exec.Command("git", "branch")
+	cmd := exec.Command("bash", "-c", `git branch | grep "*"`)
 	stdout, err := cmd.Output()
 	if err != nil {
 		fmt.Println(err.Error())
