@@ -19,7 +19,7 @@ func getBranch() {
 		fmt.Print("Not a Git repo ◀")
 		return // Let it run despite the error
 	} else {
-		fmt.Print(output, "◀")
+		fmt.Print(output, "◀ ")
 	}
 
 }
@@ -29,5 +29,5 @@ func getTime() {
 	h := t.Hour()
 	m := t.Minute()
 
-	fmt.Print(h, ":", m, "▶")
+	fmt.Print(h, ":", m, " ▶")
 }
