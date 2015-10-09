@@ -24,41 +24,51 @@ func getBranch() (output string, err error) {
 		return output, err // Let it run despite the error
 	} else {
 		clock := emoji.Sprint(":clock1:")
-		fmt.Print(output, clock, "◀ ")
+		fmt.Print(output, "◀ ", clock)
 		return output, err
 	}
 }
 
-func getTime() {
+func getTime() (printed bool, err error) {
 	t := time.Now()
 	h := t.Hour()
 	m := t.Minute()
-	fmt.Print(h, ":", m, " ▶")
+	_, err = fmt.Print(h, ":", m, " ▶")
+	if err != nil {
+		fmt.Print("Couldn't print")
+
+	} else {
+		printed = true
+	}
+	return printed, err
 }
 
-func getDir() {
+func getDir() (output string) {
 	cmd := exec.Command("bash", "-c", `echo "${PWD##*/}"`)
 	stdout, err := cmd.Output()
-	output := string(stdout)
+	output = string(stdout)
 	if err != nil {
 		fmt.Print("Err. getting folder name")
 	} else {
-		fmt.Print("|| ", output, "|| ")
+		folder := emoji.Sprint(":open_file_folder:")
+		seed := emoji.Sprint(":cactus:")
+		fmt.Print(folder, output, seed)
 	}
+	return output
 }
 
-func countDirtyFiles() {
+func countDirtyFiles() (output string) {
 	cmd := exec.Command("bash", "-c", `git status | grep modified: | wc -l`)
 	stdout, err := cmd.Output()
-	output := string(stdout)
+	output = string(stdout)
 	if err != nil {
 		fmt.Print("Couldnt read dir.")
 	}
 	if output == "0" {
 		fmt.Print("Clean dir. ")
 	} else {
-		rose := emoji.Sprint(":rose:")
+		rose := emoji.Sprint(":cherry_blossom:")
 		fmt.Print(rose, output, "files changed ")
 	}
-
+	return output
 }
