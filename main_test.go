@@ -15,19 +15,19 @@ func TestGetTime(t *testing.T) {
 		t.Error("Did not print")
 	}
 }
-func testGetDir(t *testing.T) {
+func TestGetDir(t *testing.T) {
 	if getDir() == "" {
 		t.Error("Did not print")
 	}
 }
 
-func testCountDirtyFiles(t *testing.T) {
+func TestCountDirtyFiles(t *testing.T) {
 	if countDirtyFiles() == "" {
 		t.Error("did not print")
 	}
 }
 
-func testGetBranch(t *testing.T) {
+func TestGetBranch(t *testing.T) {
 	branch, err := getBranch()
 	if err != nil {
 		assert.Equal(t, "Not a Git repo ◀", err)
