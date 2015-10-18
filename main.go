@@ -67,8 +67,8 @@ func countDirtyFiles() (output string) {
 	if output == "0" {
 		fmt.Print("Clean dir. ")
 	} else {
-		rose := emoji.Sprint(":cherry_blossom:")
-		fmt.Print(rose, output, "files changed ")
+		sakura := emoji.Sprint(":cherry_blossom:")
+		fmt.Print(sakura, output, "files changed ")
 	}
 	return output
 }
