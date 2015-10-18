@@ -68,8 +68,8 @@ func countDirtyFiles() (output string) {
     clean := emoji.Sprint(":small_blue_diamond:")
 		fmt.Print(clean, "Clean dir. ")
 	} else {
-		sakura := emoji.Sprint(":small_red_triangle:")
-		fmt.Print(sakura, output, "files changed ")
+		dirty := emoji.Sprint(":small_red_triangle:")
+		fmt.Print(dirty, output, "files changed ")
 	}
 	return output
 }
