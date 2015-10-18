@@ -35,7 +35,7 @@ func getTime() (printed bool, err error) {
 	m := t.Minute()
 	_, err = fmt.Print(h, ":", m, " ▶")
 	if err != nil {
-		fmt.Print("Couldn't print")
+		fmt.Print("Error printing time to stdout")
 
 	} else {
 		printed = true
@@ -65,9 +65,10 @@ func countDirtyFiles() (output string) {
 		fmt.Print("Couldnt read dir.")
 	}
 	if output == "0" {
-		fmt.Print("Clean dir. ")
+    clean := emoji.Sprint(":small_blue_diamond:")
+		fmt.Print(clean, "Clean dir. ")
 	} else {
-		sakura := emoji.Sprint(":cherry_blossom:")
+		sakura := emoji.Sprint(":small_red_triangle:")
 		fmt.Print(sakura, output, "files changed ")
 	}
 	return output
