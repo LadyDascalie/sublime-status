@@ -51,8 +51,8 @@ func getDir() (output string) {
 		fmt.Print("Err. getting folder name")
 	} else {
 		folder := emoji.Sprint(":open_file_folder:")
-		seed := emoji.Sprint(":cactus:")
-		fmt.Print(folder, output, seed)
+		branch := emoji.Sprint(":cactus:")
+		fmt.Print(folder, output, branch)
 	}
 	return output
 }
