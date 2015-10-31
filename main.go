@@ -64,7 +64,8 @@ func countDirtyFiles() (output string) {
 	if err != nil {
 		fmt.Print("Couldnt read dir.")
 	}
-	if strings.Compare(output, "0") == 1 {
+	split := strings.SplitAfter(strings.TrimSpace(output), "0")[0]
+	if split == "0" {
 		clean := emoji.Sprint(":small_blue_diamond:")
 		fmt.Print(clean, "Clean dir. ")
 	} else {
