@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os/exec"
+	"strings"
 	"time"
 
 	"gopkg.in/kyokomi/emoji.v1"
@@ -22,11 +23,10 @@ func getBranch() (output string, err error) {
 	if err != nil {
 		fmt.Print("Not a Git repo ◀")
 		return output, err // Let it run despite the error
-	} else {
-		clock := emoji.Sprint(":clock1:")
-		fmt.Print(output, "◀ ", clock)
-		return output, err
 	}
+	clock := emoji.Sprint(":clock1:")
+	fmt.Print(output, "◀ ", clock)
+	return output, err
 }
 
 func getTime() (printed bool, err error) {
@@ -64,8 +64,8 @@ func countDirtyFiles() (output string) {
 	if err != nil {
 		fmt.Print("Couldnt read dir.")
 	}
-	if output == "0" {
-    clean := emoji.Sprint(":small_blue_diamond:")
+	if strings.Compare(output, "0") == 1 {
+		clean := emoji.Sprint(":small_blue_diamond:")
 		fmt.Print(clean, "Clean dir. ")
 	} else {
 		dirty := emoji.Sprint(":small_red_triangle:")
