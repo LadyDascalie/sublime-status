@@ -21,7 +21,6 @@ func getBranch() (output string, err error) {
 	stdout, err := cmd.Output()
 	output = string(stdout)
 	if err != nil {
-		fmt.Print("Not a Git repo ◀")
 		return output, err // Let it run despite the error
 	}
 	clock := emoji.Sprint(":clock1:")
@@ -51,7 +50,7 @@ func getDir() (output string) {
 		fmt.Print("Err. getting folder name")
 	} else {
 		folder := emoji.Sprint(":open_file_folder:")
-		branch := emoji.Sprint(":cactus:")
+		branch := emoji.Sprint(":octopus:")
 		fmt.Print(folder, output, branch)
 	}
 	return output

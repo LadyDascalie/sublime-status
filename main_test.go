@@ -30,7 +30,7 @@ func TestCountDirtyFiles(t *testing.T) {
 func TestGetBranch(t *testing.T) {
 	branch, err := getBranch()
 	if err != nil {
-		assert.Equal(t, "Not a Git repo ◀", err)
+		t.Log(err)
 		t.Error("Not a git repo")
 	}
 
